@@ -1,0 +1,62 @@
+<h2>Healthcare Analytics</h2>
+
+<section class="kpis">
+  <mat-card class="app-card">
+    <div class="kpi"><span>Total Patients</span><h2>{{patientsTotal}}</h2></div>
+    <mat-icon>groups</mat-icon>
+  </mat-card>
+  <mat-card class="app-card">
+    <div class="kpi"><span>This Month's Appointments</span><h2>{{thisMonth}}</h2></div>
+    <mat-icon>event</mat-icon>
+  </mat-card>
+  <mat-card class="app-card">
+    <div class="kpi"><span>Completion Rate</span><h2>{{completionRate}}%</h2></div>
+    <mat-icon>task_alt</mat-icon>
+  </mat-card>
+  <mat-card class="app-card">
+    <div class="kpi"><span>Avg. Wait Time</span><h2>12 min</h2></div>
+    <mat-icon>schedule</mat-icon>
+  </mat-card>
+</section>
+
+<section class="charts">
+  <mat-card class="app-card">
+    <h3>Appointments by Specialization</h3>
+    <ul class="pie">
+      <li *ngFor="let item of specializationData">
+        <span class="label">{{item[0]}}</span>
+        <span class="value">{{item[1]}}</span>
+      </li>
+    </ul>
+    <p class="hint">* Minimal, CSS-only visualization listing counts. Hook to a real chart lib if needed.</p>
+  </mat-card>
+
+  <mat-card class="app-card">
+    <h3>Weekly Appointment Trends</h3>
+    <div class="bar">
+      <div *ngFor="let v of weekly" [style.height.%]="v*2"></div>
+    </div>
+    <p class="hint">* Mock trend bars for quick demo.</p>
+  </mat-card>
+</section>
+
+<section class="bottom">
+  <mat-card class="app-card small">
+    <div class="mini">
+      <span>Patient Satisfaction</span>
+      <h2>4.8/5.0</h2>
+    </div>
+  </mat-card>
+  <mat-card class="app-card small">
+    <div class="mini">
+      <span>No-Show Rate</span>
+      <h2>3.2%</h2>
+    </div>
+  </mat-card>
+  <mat-card class="app-card small">
+    <div class="mini">
+      <span>Revenue This Month</span>
+      <h2>$45,230</h2>
+    </div>
+  </mat-card>
+</section>

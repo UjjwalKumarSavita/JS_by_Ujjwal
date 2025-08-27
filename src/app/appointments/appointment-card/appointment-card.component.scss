@@ -1,0 +1,11 @@
+.row { display:flex; align-items:center; justify-content:space-between; }
+.sub { color:#6a6a6a; }
+.chip { padding:4px 10px; border-radius:20px; text-transform:capitalize; font-weight:600; }
+.chip.scheduled { background:#e6f5ff; color:#1976d2; }
+.chip.completed { background:#e9f7ef; color:#2e7d32; }
+.chip.cancelled { background:#ffebee; color:#c62828; }
+.meta { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin:12px 0; }
+.meta div { display:flex; align-items:center; gap:6px; color:#4a4a4a; }
+.note { color:#333; margin-bottom:10px; }
+.actions { display:flex; gap:8px; }
+@media (max-width:900px){ .meta { grid-template-columns: 1fr; } }

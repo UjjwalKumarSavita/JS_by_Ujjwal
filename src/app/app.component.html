@@ -1,0 +1,10 @@
+<ng-container *ngIf="showTopbar(); else bare">
+  <app-topbar (logout)="logout()"></app-topbar>
+  <main class="container">
+    <router-outlet></router-outlet>
+  </main>
+</ng-container>
+
+<ng-template #bare>
+  <router-outlet></router-outlet>
+</ng-template>

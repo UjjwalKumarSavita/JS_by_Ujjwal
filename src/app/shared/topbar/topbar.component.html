@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="toolbar">
+  <!-- <img src="assets/logo-heart.svg" alt="logo" height="28" class="logo" /> -->
+  <span class="title">HealthCare Pro</span>
+
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a mat-button routerLink="/appointments" routerLinkActive="active">Appointments</a>
+  <a mat-button routerLink="/analytics" routerLinkActive="active">Analytics</a>
+
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>&nbsp; {{auth.currentUser()?.name}}
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout.emit()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

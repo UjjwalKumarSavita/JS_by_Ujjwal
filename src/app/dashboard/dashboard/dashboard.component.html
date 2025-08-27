@@ -1,0 +1,79 @@
+<div class="hero gradient-bar app-card">
+  <div>
+    <h2>Welcome back, {{firstName}}!</h2>
+    <p>Manage your healthcare system efficiently</p>
+  </div>
+  <mat-icon>favorite_border</mat-icon>
+</div>
+
+<section class="stats">
+  <mat-card class="app-card">
+    <div class="kpi">
+      <span>Total Appointments</span>
+      <h2>{{totalThisMonth}}</h2>
+    </div>
+    <mat-icon>event</mat-icon>
+  </mat-card>
+
+  <mat-card class="app-card">
+    <div class="kpi">
+      <span>Completed</span>
+      <h2>{{completed}}</h2>
+    </div>
+    <mat-icon>check_circle</mat-icon>
+  </mat-card>
+
+  <mat-card class="app-card">
+    <div class="kpi">
+      <span>Upcoming (7d)</span>
+      <h2>{{upcoming.length}}</h2>
+    </div>
+    <mat-icon>schedule</mat-icon>
+  </mat-card>
+
+  <mat-card class="app-card">
+    <div class="kpi">
+      <span>Patients</span>
+      <h2>{{activePatients}}</h2>
+    </div>
+    <mat-icon>group</mat-icon>
+  </mat-card>
+</section>
+
+<div class="grid">
+  <mat-card class="app-card">
+    <div class="head">
+      <h3>Recent Appointments</h3>
+      <a mat-button color="primary" routerLink="/appointments">View All</a>
+    </div>
+
+    <div class="list">
+      <div class="row" *ngFor="let a of upcoming | slice:0:3">
+        <div class="left">
+          <strong>{{a.patient}}</strong>
+          <div class="sub">with {{a.doctor}}</div>
+        </div>
+        <div class="right">
+          <div>{{a.time}}</div>
+          <div class="sub">{{ a.date | date:'MMM d' }}</div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="app-card">
+    <h3>Quick Actions</h3>
+    <button mat-raised-button class="gradient" routerLink="/appointments">+ Schedule New Appointment</button>
+    <div class="qa">
+      <button mat-stroked-button routerLink="/appointments"><mat-icon>event_note</mat-icon> View All Appointments</button>
+      <button mat-stroked-button routerLink="/analytics"><mat-icon>insights</mat-icon> View Analytics</button>
+      <button mat-stroked-button routerLink="/appointments"><mat-icon>groups</mat-icon> Manage Patients</button>
+    </div>
+  </mat-card>
+</div>
+
+<mat-card class="app-card status">
+  <div class="item ok"><mat-icon>check_circle</mat-icon> System Online <span>All services running</span></div>
+  <div class="item warn"><mat-icon>hourglass_empty</mat-icon> 2 Pending Reviews <span>Appointment requests</span></div>
+  <div class="item info"><mat-icon>schedule</mat-icon> Next Appointment <span>In 45 minutes</span></div>
+</mat-card>

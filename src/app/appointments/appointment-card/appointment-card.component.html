@@ -1,0 +1,22 @@
+<mat-card class="app-card">
+  <div class="row">
+    <div>
+      <h3>{{data.patient}}</h3>
+      <div class="sub">with {{data.doctor}}</div>
+    </div>
+    <span class="chip" [ngClass]="data.status">{{data.status}}</span>
+  </div>
+
+  <div class="meta">
+    <div><mat-icon>event</mat-icon> {{ data.date | date:'EEE, MMM d, y' }}</div>
+    <div><mat-icon>schedule</mat-icon> {{data.time}} ({{data.durationMin}} min)</div>
+    <div><mat-icon>place</mat-icon> {{data.room}}</div>
+  </div>
+
+  <div class="note"><strong>{{data.specialization}}</strong> — {{data.notes}}</div>
+
+  <div class="actions">
+    <button mat-stroked-button color="primary" (click)="view.emit(data)"><mat-icon>visibility</mat-icon> View Details</button>
+    <button mat-stroked-button (click)="edit.emit(data)"><mat-icon>edit</mat-icon> Edit</button>
+  </div>
+</mat-card>

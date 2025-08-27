@@ -1,0 +1,17 @@
+h2 { margin-bottom: 10px; }
+.kpis { display:grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.kpi span { color:#6a6a6a; }
+.charts { display:grid; grid-template-columns: 2fr 2fr; gap: 14px; margin-top: 14px; }
+.pie { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.pie li { display:flex; justify-content:space-between; padding:10px 12px; background:#f6fbff; border-radius:10px; }
+.bar { display:flex; align-items:flex-end; gap:8px; height:160px; }
+.bar > div { flex:1; background:#8bc1ff; border-radius:6px 6px 0 0; }
+.hint { color:#6a6a6a; font-size:12px; margin-top:8px; }
+.bottom { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 14px; }
+.mini span { color:#6a6a6a; }
+.mini h2 { margin:6px 0 0 }
+@media (max-width:1000px){
+  .kpis{ grid-template-columns: repeat(2,1fr) }
+  .charts{ grid-template-columns: 1fr }
+  .bottom{ grid-template-columns: 1fr }
+}
