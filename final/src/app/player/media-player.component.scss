@@ -1,0 +1,7 @@
+.mp{position:relative;background:#0a1424;border-radius:12px;overflow:hidden}
+video{display:block;width:100%;height:auto;max-height:65vh;background:#000}
+.controls{display:flex;gap:.6rem;align-items:center;background:#0f1b2e;border-top:1px solid #1e2b44;padding:.5rem}
+.time{display:flex;align-items:center;gap:.45rem;flex:1 1 auto}
+.time input[type=range]{flex:1 1 auto}
+button, select, input{background:#0f1b2e;color:#e6eef7;border:1px solid #1e2b44;border-radius:8px;padding:.35rem .6rem}
+button{cursor:pointer}

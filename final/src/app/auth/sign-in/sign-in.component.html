@@ -1,0 +1,47 @@
+<div class="signin-2col">
+  <div class="left">
+    <!-- replace with your own illustration if you want -->
+    <img src="/assets/auth/illustration.png" alt="Welcome illustration" />
+  </div>
+
+  <div class="right">
+    <div class="panel">
+      <h2 class="brand">Product Name</h2>
+      <h1>Welcome!</h1>
+      <p class="sub">Sign in to your learning account</p>
+
+      <div class="form">
+        <label for="idn">Username / Email</label>
+        <input id="idn" type="text" [(ngModel)]="identifier" placeholder="you@example.com or username" />
+
+        <label for="password">Password</label>
+        <div class="password-row">
+          <input id="password" [type]="showPassword ? 'text' : 'password'"
+                 [(ngModel)]="password" placeholder="••••••••" />
+          <button type="button" class="icon-btn" (click)="toggleShow()">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+
+        <div class="row">
+          <label class="checkbox">
+            <input type="checkbox" [(ngModel)]="remember" />
+            <span>Remember me</span>
+          </label>
+          <a class="link" routerLink="/forgot-password">Forgot Password?</a>
+        </div>
+
+        <p class="error" *ngIf="error">{{ error }}</p>
+
+        <button class="primary" (click)="submit()" [disabled]="loading">
+          {{ loading ? 'Signing in…' : 'Sign in' }}
+        </button>
+
+        <p class="muted">
+          Don’t have an account?
+          <a class="link" routerLink="/sign-up">Register now</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

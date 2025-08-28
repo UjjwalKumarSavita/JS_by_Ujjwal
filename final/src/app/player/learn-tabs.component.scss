@@ -1,0 +1,7 @@
+.tabs{margin-top:.8rem}
+.tab-head{display:flex;gap:.5rem;border-bottom:1px solid #1b2946}
+.tab-head button{background:transparent;border:0;color:#9fb2ca;padding:.6rem .8rem;border-bottom:3px solid transparent;cursor:pointer}
+.tab-head button.active{color:#e6eef7;border-color:#2be0c2}
+.tab-body{background:#0f1b2e;border:1px solid #1e2b44;border-radius:16px;padding:1rem;margin-top:.75rem}
+.bullets{margin:.25rem 0 1rem 1rem}
+.t{background:#0c172a;border:1px solid #1d2a45;border-radius:12px;padding:.6rem;margin-bottom:.5rem}

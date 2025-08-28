@@ -1,0 +1,99 @@
+<app-header></app-header>
+
+<section class="course" *ngIf="course() as c">
+  <div class="banner">
+    <nav class="crumbs">
+      <a routerLink="/dashboard">Home</a>
+      <span>›</span>
+      <span>{{ c.title }}</span>
+    </nav>
+
+    <h1>{{ c.title }}</h1>
+    <p class="tagline">{{ c.overview }}</p>
+
+    <div class="created">
+      Created by
+      <a href="javascript:void(0)">{{ c.author.name }}</a>
+    </div>
+
+    <div class="cta">
+      <button class="enroll" (click)="onEnroll()">
+        {{ isEnrolled() ? 'Continue learning' : 'Enroll Now' }}
+      </button>
+      <small class="enrolled">{{ c.enrolled | number }} already enrolled</small>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div><span>Level</span><strong>{{ c.level }}</strong></div>
+    <div><span>Rating</span>
+      <strong>★ {{ c.rating }} <small>({{ c.reviews | number }} reviews)</small></strong>
+    </div>
+    <div><span>Duration</span><strong>{{ weeksLabel(c.durationWeeks) }}</strong></div>
+    <div><span>Flexible Schedule</span><strong>Learn at your own pace</strong></div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-head">
+      <button [class.active]="tab()==='overview'" (click)="tab.set('overview')">Overview</button>
+      <button [class.active]="tab()==='content'" (click)="tab.set('content')">Course Content</button>
+      <button [class.active]="tab()==='author'" (click)="tab.set('author')">Author Details</button>
+      <button [class.active]="tab()==='testimonials'" (click)="tab.set('testimonials')">Testimonials</button>
+    </div>
+
+    <div class="tab-body" *ngIf="tab() === 'overview'">
+      <h3>What you’ll learn</h3>
+      <ul><li *ngFor="let s of c.skills">{{ s }}</li></ul>
+
+      <h3>Requirements</h3>
+      <ul><li *ngFor="let r of c.requirements">{{ r }}</li></ul>
+
+      <h3>Description</h3>
+      <p>{{ c.description }}</p>
+    </div>
+
+    <div class="tab-body" *ngIf="tab() === 'content'">
+      <div class="sec" *ngFor="let s of c.curriculum">
+        <h4>
+          {{ s.title }}
+          <small class="muted">• {{ minutesToLabel(totalMinutes(s)) }}</small>
+        </h4>
+        <ul>
+          <li *ngFor="let l of s.lessons">
+            {{ l.title }} <small class="muted">• {{ l.durationMinutes || 0 }}m • {{ l.type }}</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-body" *ngIf="tab() === 'author'">
+      <h3>{{ c.author.name }}</h3>
+      <p>{{ c.author.bio }}</p>
+    </div>
+
+    <div class="tab-body" *ngIf="tab() === 'testimonials'">
+      <div class="t" *ngFor="let t of c.testimonials">
+        <strong>{{ t.name }}</strong> — ★ {{ t.rating }}
+        <p>{{ t.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="related" *ngIf="related() as rel">
+    <h3>Related Courses</h3>
+    <ul>
+      <li *ngFor="let r of rel">
+        <a [routerLink]="['/course', r.id]">
+          <img [src]="r.thumbnail" [alt]="r.title" width="48" height="48" />
+          <div class="meta">
+            <strong>{{ r.title }}</strong>
+            <div class="muted small">
+              {{ weeksLabel(r.durationWeeks) }} • Published {{ r.publishedAt | date }}
+            </div>
+          </div>
+          <div class="right">★ {{ r.rating }}</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

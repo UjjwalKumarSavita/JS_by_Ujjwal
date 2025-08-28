@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<section class="wizard" *ngIf="course() as c">
+  <nav class="crumbs"><a routerLink="/author">My Courses</a> › <span>Create New Course</span></nav>
+
+  <!-- Stepper -->
+  <div class="stepper">
+    <div class="step" [class.active]="step()===1"><span>01</span> Basic Details</div>
+    <div class="step" [class.active]="step()===2"><span>02</span> Course Content</div>
+    <div class="step" [class.active]="step()===3"><span>03</span> Overview</div>
+    <button class="publish" (click)="publish()">Publish</button>
+  </div>
+
+  <!-- Step 1 -->
+  <div *ngIf="step()===1" class="panel">
+    <h3>Details</h3>
+    <form [formGroup]="basic" (ngSubmit)="saveStep1()">
+      <label>Course Title
+        <input formControlName="title" placeholder="Enter Course title here"/>
+      </label>
+
+      <label>Short Overview
+        <input formControlName="overview" placeholder="Enter a short tagline"/>
+      </label>
+
+      <label>Description
+        <textarea rows="6" formControlName="description" placeholder="Enter Description here"></textarea>
+      </label>
+
+      <label>Upload Course Thumbnail (URL or path)
+        <input formControlName="thumbnail" placeholder="assets/images/mythumb.jpg"/>
+      </label>
+
+      <div class="nav">
+        <button type="submit" class="secondary" (click)="saveStep1()">Save</button>
+        <button type="button" [disabled]="!canNext()" (click)="saveStep1(); next()">Next</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Step 2 -->
+  <div *ngIf="step()===2" class="panel">
+    <h3>Modules</h3>
+
+    <div *ngFor="let s of sections()" class="section">
+      <div class="sec-head">
+        <input [(ngModel)]="s.title" (ngModelChange)="svc.save(c)" placeholder="Enter module title here">
+        <div class="summary">{{ s.lessons.length }} Lectures • {{ sectionMinutes(s) }} mins</div>
+        <div class="act">
+          <button (click)="duplicateSection(s.id)">⎘</button>
+          <button (click)="removeSection(s.id)">🗑</button>
+        </div>
+      </div>
+
+      <div class="lessons" *ngIf="s.lessons.length; else empty">
+        <div class="row" *ngFor="let l of s.lessons; let i = index">
+          <div class="drag">↕</div>
+          <div class="title">
+            <strong>{{ l.title }}</strong>
+            <small class="muted">• {{ l.type }} • {{ l.durationMinutes || 0 }}m</small>
+          </div>
+          <div class="row-act">
+            <button (click)="moveLecture(s.id, i, -1)">▲</button>
+            <button (click)="moveLecture(s.id, i, 1)">▼</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #empty><div class="empty">No lectures yet.</div></ng-template>
+
+      <button class="add" (click)="openAddLecture(s.id)">Add Lecture</button>
+    </div>
+
+    <div class="center">
+      <a class="add-sec" (click)="addSection()">Add New Section</a>
+    </div>
+
+    <div class="nav">
+      <button class="secondary" (click)="prev()">Prev</button>
+      <button [disabled]="!canNext()" (click)="next()">Next</button>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div *ngIf="step()===3" class="panel">
+    <h3>Overview</h3>
+    <form [formGroup]="meta" (ngSubmit)="saveStep3()">
+      <div class="grid2">
+        <label>Duration (weeks)
+          <input type="number" min="1" formControlName="durationWeeks">
+        </label>
+        <label>Level
+          <select formControlName="level">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </label>
+      </div>
+
+      <label>What you will learn (one per line)
+        <textarea rows="4" formControlName="whatYouWillLearn"></textarea>
+      </label>
+
+      <label>Skills you’ll gain (comma separated)
+        <input formControlName="skills">
+      </label>
+
+      <label>Prerequisites (one per line)
+        <textarea rows="3" formControlName="prerequisites"></textarea>
+      </label>
+
+      <label>Software Requirements (comma separated)
+        <input formControlName="softwareRequirements">
+      </label>
+
+      <div class="nav">
+        <button class="secondary" (click)="prev()">Prev</button>
+        <button type="submit" (click)="saveStep3()">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <app-add-lecture-modal
+    *ngIf="showModal()"
+    (close)="onAddLecture($event)">
+  </app-add-lecture-modal>
+</section>

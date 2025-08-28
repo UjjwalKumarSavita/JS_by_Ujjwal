@@ -1,0 +1,28 @@
+.wizard{max-width:1000px;margin:20px auto;padding:0 16px}
+.crumbs{color:#8aa;font-size:.9rem;margin-bottom:8px}
+.stepper{display:flex;gap:12px;align-items:center;margin:10px 0}
+.step{padding:8px 12px;border:1px solid #334;border-radius:8px;color:#cde;background:#0c111a}
+.step.active{background:#1b2230;border-color:#3b4a66}
+.step span{opacity:.8;margin-right:6px}
+.publish{margin-left:auto;background:#1f7a67;color:#fff;border:0;border-radius:8px;padding:8px 14px}
+.panel{background:#0b1220;border:1px solid #223;border-radius:12px;padding:16px;margin:10px 0}
+label{display:block;margin:10px 0;color:#cfe}
+input, textarea, select{width:100%;background:#0a0f18;border:1px solid #334;border-radius:8px;color:#def;padding:10px}
+.nav{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
+.nav button{padding:8px 12px;border-radius:8px;border:1px solid #334;background:#1a2333;color:#eef}
+.nav .secondary{background:#131b28}
+.section{background:#141c2a;border:1px solid #27334a;border-radius:10px;padding:12px;margin:12px 0}
+.sec-head{display:flex;align-items:center;gap:12px}
+.sec-head input{flex:1}
+.summary{color:#8fb}
+.act button{margin-left:6px}
+.lessons .row{display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px dashed #334}
+.row .drag{opacity:.7}
+.row .title{flex:1}
+.muted{color:#9ab}
+.add{margin-top:8px;background:#1f7a67;color:#fff;border:0;border-radius:6px;padding:6px 10px}
+.center{display:flex;justify-content:center;margin:8px 0}
+.add-sec{cursor:pointer;color:#7dd}
+.empty{color:#99a;padding:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){ .grid2{grid-template-columns:1fr} .publish{display:none} }

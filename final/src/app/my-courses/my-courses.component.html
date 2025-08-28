@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<section class="wrap">
+  <h2>My Courses</h2>
+
+  <div class="block" *ngIf="inProgress.length">
+    <h3>In Progress</h3>
+    <div class="grid">
+      <app-course-card *ngFor="let c of inProgress" [course]="c"></app-course-card>
+    </div>
+  </div>
+
+  <div class="block" *ngIf="completed.length">
+    <h3>Completed</h3>
+    <div class="grid">
+      <app-course-card *ngFor="let c of completed" [course]="c"></app-course-card>
+    </div>
+  </div>
+
+  <div class="empty" *ngIf="!inProgress.length && !completed.length">
+    You haven’t enrolled in any course yet. Browse <a routerLink="/search" [queryParams]="{q: ''}">courses</a>.
+  </div>
+</section>

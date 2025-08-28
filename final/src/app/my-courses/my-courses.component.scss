@@ -1,0 +1,5 @@
+.wrap{padding:1rem}
+h2{margin:.25rem 0 1rem}
+.block + .block{margin-top:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem}
+.empty{margin-top:1rem;color:#9fb2ca}

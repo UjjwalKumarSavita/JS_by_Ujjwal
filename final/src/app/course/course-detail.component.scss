@@ -1,0 +1,13 @@
+.banner{padding:1rem;border-bottom:1px solid #1c2a46;background:#0c1320}
+.crumbs{color:#9fb2ca}.cta{display:flex;gap:1rem;margin:.75rem 0}
+.enroll{background:#2be0c2;color:#062022;border:0;padding:.7rem 1rem;border-radius:12px;font-weight:800}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;margin-top:.8rem}
+.chip{background:#0f1b2e;border:1px solid #1e2b44;padding:.6rem .8rem;border-radius:12px;display:flex;gap:.5rem}
+.tabs{padding:1rem}.tab-head{display:flex;gap:.5rem;border-bottom:1px solid #1b2946}
+.tab-head button{background:transparent;border:0;color:#9fb2ca;padding:.6rem .8rem;border-bottom:3px solid transparent}
+.tab-head button.active{color:#e6eef7;border-color:#2be0c2}
+.tab-body{background:#0f1b2e;border:1px solid #1e2b44;border-radius:16px;padding:1rem;margin-top:.75rem}
+.related{padding:0 1rem 1.2rem}.rel-list{background:#0f1b2e;border:1px solid #1e2b44;border-radius:18px;padding:.5rem}
+.rel-item{display:grid;grid-template-columns:56px 1fr auto;gap:.6rem;align-items:center;padding:.45rem .6rem}
+.rel-item img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+.badge{display:inline-block;margin-top:.2rem;padding:.15rem .45rem;border-radius:999px;border:1px solid #2a3a58;font-size:.78rem}

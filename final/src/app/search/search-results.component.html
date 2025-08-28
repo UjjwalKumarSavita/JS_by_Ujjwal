@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="wrap">
+  <app-filter-sidebar
+    [counts]="counts()"
+    [state]="state()"
+    (stateChange)="onStateChange($event)">
+  </app-filter-sidebar>
+
+  <section class="results">
+    <div class="head">
+      <h3>{{ filtered().length }} Results for “{{ query() }}”</h3>
+      <div class="sort">
+        <label>Sort:</label>
+        <select [value]="sort()" (change)="setSort(($any($event.target).value))">
+          <option value="latest">Latest</option>
+          <option value="rating">Highest Rating</option>
+          <option value="reviewed">Highest Reviewed</option>
+          <option value="az">A–Z</option>
+          <option value="za">Z–A</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid">
+      <app-course-card *ngFor="let c of paged()" [course]="c"></app-course-card>
+    </div>
+
+    <div class="pager" *ngIf="totalPages() > 1">
+      <button (click)="gotoPage(page()-1)">Prev</button>
+      <button *ngFor="let i of [].constructor(totalPages()); let idx = index"
+              [class.active]="(idx+1)===page()" (click)="gotoPage(idx+1)">
+        {{ idx+1 }}
+      </button>
+      <button (click)="gotoPage(page()+1)">Next</button>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,80 @@
+<div class="auth-wrap">
+<h2>Create account</h2>
+<form (ngSubmit)="submit()">
+<label>Full name <input [(ngModel)]="fullName" name="fullName" required /></label>
+<label>Email <input [(ngModel)]="email" name="email" required type="email" /></label>
+<label>Username <input [(ngModel)]="username" name="username" required /></label>
+<label>Password <input [(ngModel)]="password" name="password" required type="password" /></label>
+<button type="submit">Create</button>
+</form>
+</div>
+
+
+<!-- <div class="auth">
+  <div class="auth__left">
+    <img src="assets/images/signup.svg" alt="Sign up illustration" />
+  </div>
+
+  <div class="auth__right">
+    <div class="panel">
+      <h1 class="brand">Product Name</h1> -->
+<!-- 
+      <section class="auth">
+  <h2>Create account</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name
+      <input formControlName="name" placeholder="Your name" />
+    </label>
+    <label>Email
+      <input type="email" formControlName="email" placeholder="you@example.com" />
+    </label>
+    <label>Password
+      <input type="password" formControlName="password" placeholder="••••••••" />
+    </label>
+    <label>Role
+      <select formControlName="role">
+        <option value="learner">Learner</option>
+        <option value="author">Author</option>
+        <option value="admin">Admin</option>
+      </select>
+    </label>
+    <button type="submit" [disabled]="form.invalid">Create account</button>
+    <p class="muted">Already have an account? <a routerLink="/sign-in">Sign in</a></p>
+  </form>
+</section> -->
+
+      <!-- or   <p class="muted">Create your account</p>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <label class="field">
+          <span>Username</span>
+          <input type="text" formControlName="username" placeholder="Your name" />
+          <small *ngIf="f.username.touched && f.username.invalid">Min 3 characters.</small>
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input type="email" formControlName="email" placeholder="you@example.com" />
+          <small *ngIf="f.email.touched && f.email.invalid">Enter a valid email.</small>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="pass">
+            <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Create password" />
+          </div>
+          <small *ngIf="f.password.touched && f.password.invalid">Min 6 characters.</small>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" formControlName="terms" />
+          <span>I agree to the Terms & Conditions</span>
+        </label>
+
+        <button class="primary" [disabled]="form.invalid" type="submit">Register</button>
+      </form>
+
+      <p class="muted small">Already have an account? <a routerLink="/signin">Login</a></p>
+    </div> -->
+  <!-- </div>
+</div> -->

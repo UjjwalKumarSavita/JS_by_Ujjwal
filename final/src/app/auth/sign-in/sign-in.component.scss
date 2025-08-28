@@ -1,0 +1,112 @@
+.signin-2col {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: radial-gradient(90% 120% at 0% 0%, #0b1220 0%, #0a0f1a 60%, #080c15 100%);
+}
+
+.left {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #0d1b2a 0%, #0b3b2e 100%);
+  border-right: 1px solid #0f2530;
+
+  img {
+    max-width: 640px;
+    width: 90%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,.45));
+    border-radius: 16px;
+  }
+}
+
+.right {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel {
+  width: 100%;
+  max-width: 420px;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  color: #e5e7eb;
+}
+
+.brand { margin: 0 0 2px; font-weight: 700; color: #c8facc; font-size: 1rem; letter-spacing: .02em; }
+h1 { margin: 0; font-size: 1.6rem; }
+.sub { margin: 6px 0 18px; color: #9ca3af; }
+
+.form { display: grid; gap: 12px; }
+label { font-size: .85rem; color: #a3a3a3; }
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #e5e7eb;
+  outline: none;
+
+  &:focus { border-color: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
+}
+
+.password-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #cbd5e1;
+  cursor: pointer;
+
+  &:hover { background: #111827; }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.checkbox { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox input { accent-color: #22c55e; }
+
+.link { color: #86efac; text-decoration: none; font-weight: 500; }
+.link:hover { text-decoration: underline; }
+
+.error { color: #f87171; margin-top: 2px; min-height: 1.25em; }
+
+.primary {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #22c55e;
+  color: #0b1220;
+  font-weight: 700;
+  cursor: pointer;
+
+  &[disabled] { opacity: .6; cursor: default; }
+}
+
+.muted { margin: 10px 0 0; color: #9ca3af; text-align: center; }
+
+@media (max-width: 980px) {
+  .signin-2col { grid-template-columns: 1fr; }
+  .left { display: none; }
+}

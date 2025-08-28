@@ -1,0 +1,13 @@
+.wrap { display:grid; grid-template-columns: 280px 1fr; gap: 1rem; padding: 1rem; }
+.results .head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.75rem; }
+.sort select {
+  background:#0f1b2e; color:#e6eef7; border:1px solid #1e2b44; border-radius:10px; padding:.4rem .6rem;
+}
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:.85rem; }
+.pager { display:flex; gap:.4rem; justify-content:center; padding:1rem 0; }
+.pager button { background:#0f1b2e; border:1px solid #1e2b44; color:#cfe5ff; border-radius:10px; padding:.4rem .7rem; }
+.pager .active { background:#1a2a44; }
+
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: 1fr; }
+}

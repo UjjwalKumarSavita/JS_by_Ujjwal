@@ -1,0 +1,32 @@
+<section class="tabs" *ngIf="course as c">
+  <div class="tab-head">
+    <button [class.active]="tab==='overview'" (click)="tab='overview'">Overview</button>
+    <button [class.active]="tab==='author'" (click)="tab='author'">Author Details</button>
+    <button [class.active]="tab==='testimonials'" (click)="tab='testimonials'">Testimonials</button>
+  </div>
+
+  <div class="tab-body">
+    <ng-container [ngSwitch]="tab">
+      <div *ngSwitchCase="'overview'">
+        <h3>What you’ll learn</h3>
+        <ul class="bullets"><li *ngFor="let s of c.skills">{{ s }}</li></ul>
+        <h3>Requirements</h3>
+        <ul class="bullets"><li *ngFor="let r of c.requirements">{{ r }}</li></ul>
+        <h3>Description</h3>
+        <p>{{ c.description }}</p>
+      </div>
+
+      <div *ngSwitchCase="'author'">
+        <h3>{{ c.author.name }}</h3>
+        <p>{{ c.author.bio }}</p>
+      </div>
+
+      <div *ngSwitchCase="'testimonials'">
+        <div class="t" *ngFor="let t of c.testimonials">
+          <strong>{{ t.name }}</strong> — ★ {{ t.rating }}
+          <p>{{ t.text }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

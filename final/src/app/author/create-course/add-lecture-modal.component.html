@@ -1,0 +1,57 @@
+<div class="backdrop" (click)="close.emit(null)"></div>
+<div class="modal">
+  <header>
+    <h3>Add New Lecture</h3>
+    <button class="x" (click)="close.emit(null)">✕</button>
+  </header>
+
+  <label>Type
+    <select [(ngModel)]="type">
+      <option value="video">Video</option>
+      <option value="text">Topic (Text)</option>
+      <option value="pdf">PDF</option>
+    </select>
+  </label>
+
+  <label>Topic Title
+    <input [(ngModel)]="title" placeholder="Enter topic title"/>
+  </label>
+
+  <label>Topic Description
+    <textarea rows="3" [(ngModel)]="description" placeholder="Enter Topic Description"></textarea>
+  </label>
+
+  <ng-container [ngSwitch]="type">
+    <div *ngSwitchCase="'video'">
+      <label>Upload or Link (URL)
+        <input [(ngModel)]="url" placeholder="https://... or assets/video.mp4">
+      </label>
+      <label>Duration (minutes)
+        <input type="number" min="1" [(ngModel)]="durationMinutes">
+      </label>
+    </div>
+
+    <div *ngSwitchCase="'text'">
+      <label>Rich Text (simple)
+        <textarea rows="6" [(ngModel)]="content" placeholder="Enter formatted text..."></textarea>
+      </label>
+      <label>Estimated Duration (minutes)
+        <input type="number" min="1" [(ngModel)]="durationMinutes">
+      </label>
+    </div>
+
+    <div *ngSwitchCase="'pdf'">
+      <label>PDF URL or path
+        <input [(ngModel)]="url" placeholder="assets/docs/lesson.pdf">
+      </label>
+      <label>Estimated Duration (minutes)
+        <input type="number" min="1" [(ngModel)]="durationMinutes">
+      </label>
+    </div>
+  </ng-container>
+
+  <footer>
+    <button class="secondary" (click)="close.emit(null)">Cancel</button>
+    <button (click)="submit()">Submit</button>
+  </footer>
+</div>

@@ -1,0 +1,9 @@
+.hero{background:linear-gradient(90deg,#155e75 0%,#0b5a47 100%);border-bottom:1px solid #1c2a46;padding:.8rem 1rem}
+.banner{margin:.25rem auto;text-align:center;letter-spacing:.12em;font-weight:800;background:#0c172a;border:2px dashed #2a9d8f;padding:.6rem 1rem;border-radius:10px;max-width:980px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1rem}
+.stat{background:#0f1b2e;border:1px solid #1e2b44;border-radius:16px;padding:1rem;display:grid;gap:.35rem}
+.kpi{font-size:2rem;font-weight:700}.label{color:#9fb2ca}.view{font-size:.9rem;color:#7dd3fc}
+.carousel{padding:.5rem 1rem 1.25rem}.carousel h3{margin:.5rem 0 .8rem}
+.row{display:grid;grid-auto-flow:column;grid-auto-columns:max-content;gap:.85rem;overflow-x:auto;padding-bottom:.35rem}
+.row::-webkit-scrollbar{height:8px}.row::-webkit-scrollbar-thumb{background:#1d2a45;border-radius:999px}
+@media (max-width:900px){.stats{grid-template-columns:1fr}}

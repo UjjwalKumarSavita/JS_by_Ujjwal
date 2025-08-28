@@ -1,0 +1,37 @@
+<header class="topbar">
+  <div class="brand">
+    <a routerLink="/dashboard">Product Name</a>
+  </div>
+
+  <div class="search">
+    <input [(ngModel)]="query" type="text" placeholder="Search courses…" (keyup.enter)="goSearch()" />
+    <button class="clear" *ngIf="query" (click)="query=''">×</button>
+
+    <ul class="ac" *ngIf="filtered().length">
+      <li *ngFor="let s of filtered()" (click)="goSearch(s)">{{ s }}</li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <button class="icon" title="Notifications">🔔</button>
+
+    <div class="profile" (click)="toggleProfile()">
+      <img src="assets/images/avatar.png" alt="User" />
+      <ul class="menu" *ngIf="showDropdown" (click)="$event.stopPropagation()">
+        <li class="menu-head">
+          <img src="assets/images/avatar.png" alt="User" />
+          <div>
+            <strong>Harry Shimron</strong>
+            <small>DC Software Engineer</small>
+          </div>
+        </li>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#">Admin Console</a></li>
+        <li><a routerLink="/my-courses">My Courses</a></li>
+        <li><a href="#">Blog</a></li>
+        <li class="sep"></li>
+        <li><a routerLink="/signin">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

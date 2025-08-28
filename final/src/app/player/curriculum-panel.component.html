@@ -1,0 +1,23 @@
+<aside class="toc" *ngIf="course as c">
+  <h3>Course Content</h3>
+
+  <div class="sec" *ngFor="let sec of c.curriculum; let si = index">
+    <div class="sec-head" (click)="toggle(si)">
+      {{ sec.title }}
+      <small>{{ sec.lessons.length }} lectures</small>
+    </div>
+
+    <ul class="lessons" *ngIf="isOpen(si)">
+      <li *ngFor="let l of sec.lessons; let li = index"
+          [class.active]="isActive(l.id)"
+          [class.done]="enroll.isLessonDone(c.id, l.id)"
+          (click)="choose(l.id)">
+        <span>
+          <input type="checkbox" [checked]="enroll.isLessonDone(c.id, l.id)" readonly />
+          {{ l.title }}
+        </span>
+        <small>{{ l.durationMinutes }}m</small>
+      </li>
+    </ul>
+  </div>
+</aside>

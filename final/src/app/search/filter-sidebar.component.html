@@ -1,0 +1,52 @@
+<aside class="filters">
+  <h4>Filter</h4>
+
+  <!-- Duration -->
+  <div class="group">
+    <button class="grp-head" (click)="open.duration=!open.duration">Duration</button>
+    <ul *ngIf="open.duration">
+      <li><label><input type="radio" name="dur" [checked]="state.duration==='All'" (change)="setDuration('All')"> All <span class="cnt">{{ counts['dur:All'] || 0 }}</span></label></li>
+      <li *ngFor="let b of ['< 1 week','1–4 weeks','1–3 months','3–6 months','6–12 months']">
+        <label>
+          <input type="radio" name="dur" [checked]="state.duration===b" (change)="setDuration(b)"> {{b}}
+          <span class="cnt">{{ counts['dur:'+b] || 0 }}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Rating -->
+  <div class="group">
+    <button class="grp-head" (click)="open.rating=!open.rating">Rating</button>
+    <ul *ngIf="open.rating">
+      <li><label><input type="radio" name="rat" [checked]="state.rating==='All'" (change)="setRating('All')"> All</label></li>
+      <li *ngFor="let r of [4.5,4.0,3.5,3.0]">
+        <label><input type="radio" name="rat" [checked]="state.rating===r" (change)="setRating(r)">
+          <span class="stars">★</span> {{r}}+</label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Published -->
+  <div class="group">
+    <button class="grp-head" (click)="open.published=!open.published">Published Date</button>
+    <ul *ngIf="open.published">
+      <li><label><input type="radio" name="pub" [checked]="state.published==='All'" (change)="setPublished('All')"> All</label></li>
+      <li><label><input type="radio" name="pub" [checked]="state.published==='week'" (change)="setPublished('week')"> This week</label></li>
+      <li><label><input type="radio" name="pub" [checked]="state.published==='month'" (change)="setPublished('month')"> This month</label></li>
+      <li><label><input type="radio" name="pub" [checked]="state.published==='six'" (change)="setPublished('six')"> Last 6 months</label></li>
+      <li><label><input type="radio" name="pub" [checked]="state.published==='year'" (change)="setPublished('year')"> This year</label></li>
+    </ul>
+  </div>
+
+  <!-- Level -->
+  <div class="group">
+    <button class="grp-head" (click)="open.level=!open.level">Course Level</button>
+    <ul *ngIf="open.level">
+      <li><label><input type="radio" name="lvl" [checked]="state.level==='All'" (change)="setLevel('All')"> All</label></li>
+      <li><label><input type="radio" name="lvl" [checked]="state.level==='Beginner'" (change)="setLevel('Beginner')"> Beginner</label></li>
+      <li><label><input type="radio" name="lvl" [checked]="state.level==='Intermediate'" (change)="setLevel('Intermediate')"> Intermediate</label></li>
+      <li><label><input type="radio" name="lvl" [checked]="state.level==='Advanced'" (change)="setLevel('Advanced')"> Advanced</label></li>
+    </ul>
+  </div>
+</aside>

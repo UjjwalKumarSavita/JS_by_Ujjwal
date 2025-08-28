@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<section class="learn" *ngIf="course() as c; else missing">
+  <main class="stage">
+    <div class="viewer" *ngIf="currentLesson() as lesson">
+      <app-media-player
+        *ngIf="lesson.type==='video'"
+        [src]="lesson.url || ''"
+        [speed]="speed()"
+        [volume]="volume()"
+        (speedChange)="onSpeed($event)"
+        (volumeChange)="onVolume($event)"
+        (ended)="markDone()"
+      ></app-media-player>
+
+      <app-pdf-viewer *ngIf="lesson.type==='pdf'" [src]="lesson.url || ''"></app-pdf-viewer>
+      <app-text-viewer *ngIf="lesson.type==='text'" [content]="lesson.content || ''"></app-text-viewer>
+    </div>
+
+    <div class="lesson-head" *ngIf="currentLesson() as l">
+      <h2>{{ c.curriculum[sIdx()].title }} — {{ l.title }}</h2>
+      <div class="controls">
+        <button (click)="prev()">Prev</button>
+        <button (click)="next()">Next</button>
+        <button class="mark" [class.on]="isDone()" (click)="markDone()">
+          {{ isDone() ? 'Completed ✓' : 'Mark complete' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="progress">
+      <div class="bar" [style.width.%]="progress()"></div>
+      <span>{{ progress() }}% complete</span>
+    </div>
+
+    <app-learn-tabs [course]="c"></app-learn-tabs>
+  </main>
+
+  <app-curriculum-panel
+    class="right"
+    [course]="c"
+    [currentLessonId]="currentLesson()?.id || ''"
+    (select)="chooseLesson($event)"
+  ></app-curriculum-panel>
+</section>
+
+<ng-template #missing>
+  <section class="empty">Course not found.</section>
+</ng-template>

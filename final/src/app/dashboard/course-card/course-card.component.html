@@ -1,0 +1,22 @@
+<a class="card" [routerLink]="['/course', course.id]">
+  <div class="thumb">
+    <img [src]="course.thumbnail" [alt]="course.title" />
+  </div>
+
+  <div class="body">
+    <h4>{{ course.title }}</h4>
+    <p class="provider">{{ course.provider }}</p>
+
+    <div class="meta">
+      <div class="rating">
+        ★ {{ course.rating }}
+        <small>{{ course.reviews | number }} reviews</small>
+      </div>
+
+      <div class="chips">
+        <span class="chip">{{ course.level }}</span>
+        <span class="chip">{{ weeksLabel(course.durationWeeks) }}</span>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<section class="hero">
+  <div class="banner">LOREM IPSUM DOLOR</div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <div class="kpi">3</div>
+    <div class="label">My Goals</div>
+    <a href="#" class="view">View all</a>
+  </div>
+  <div class="stat">
+    <div class="kpi">8</div>
+    <div class="label">Enrolled Courses</div>
+    <a href="#" class="view">View all</a>
+  </div>
+  <div class="stat">
+    <div class="kpi">2</div>
+    <div class="label">Certificates Earned</div>
+    <a href="#" class="view">Download</a>
+  </div>
+</section>
+
+<section class="carousel">
+  <h3>Last Viewed Courses</h3>
+  <div class="row">
+    <app-course-card *ngFor="let c of lastViewed" [course]="c"></app-course-card>
+  </div>
+</section>
+
+<section class="carousel">
+  <h3>Newly Launched</h3>
+  <div class="row">
+    <app-course-card *ngFor="let c of newlyLaunched" [course]="c"></app-course-card>
+  </div>
+</section>
