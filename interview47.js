@@ -1,3 +1,7 @@
+
+https://chatgpt.com/c/68af0e9b-4f18-8328-9527-514a4f756bb8
+
+
 // EVERY THING IS ABOUT [] 'EMPTY ARRAY'
 
 // | Aspect      | Detail                           |
